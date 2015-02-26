@@ -11,7 +11,7 @@ public class Del {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String name = reader.readLine();
 
-        for(int i = 2; i < name.length();i++) {
+        for(int i = 2; i < name.length(); i = i + 2) {
 
             name = removeCharAt(name, i);
         }
