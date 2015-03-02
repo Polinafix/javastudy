@@ -14,35 +14,29 @@ public class Client {
         Integer one = scan.nextInt();
         Integer two = scan.nextInt();
         String operation = "";
-        int result = 0;
-        String sign = "";
-        while (Operators.valueOf(operation) != null) {
+        while (!Operators.contains(operation)) {
             System.out.println("To add, type a, to subtract, type s,");
             System.out.println("To multiply, type m, to divide, type d");
             operation = scan1.nextLine();
-            switch (operation) {
-                case "a":
-                    result = n.summ(one, two);
-                    sign = "+";
-                    break;
-                case "s":
-                    result = n.sub(one, two);
-                    sign = "-";
-                    break;
-                case "m":
-                    result = n.mult(one, two);
-                    sign = "*";
-                    break;
-                case "d":
-                    result = n.div(one, two);
-                    sign = ":";
-                    break;
+            Operators userOp = Operators.valueOf(operation);
+            switch (userOp) {
+                case a:
+                    return showResult(one, two, userOp,n.summ(one, two));
+                case s:
+                    return showResult(one, two, userOp,n.sub(one, two));
+                case m:
+                    return showResult(one, two, userOp,n.mult(one, two));
+                case d:
+                    return showResult(one, two, userOp, n.div(one, two));
                 default:
                     System.out.println("Start again");
             }
         }
-        String answer = one.toString() + sign + two.toString() + " = " + String.valueOf(result);
-        return answer;
+        throw new RuntimeException();
+    }
+
+    public static String showResult(Integer one, Integer two, Operators userOp, Integer result) {
+        return one.toString() + userOp.sign + two.toString() + " = " + String.valueOf(result);
     }
 
     public static void main(String[] args) {
