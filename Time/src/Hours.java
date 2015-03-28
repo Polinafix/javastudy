@@ -18,16 +18,12 @@ public class Hours {
         int min = n % 60;
         int z = n - min;
         int hour = z/60;
-        if(hour > 23)
-        {
+        if(hour > 23) {
             result =(hour%24)+ ":" + min;
         }
-        else
-        {
+        else {
             result = hour + ":" + min;
         }
-            return result;
-
-
+        return result;
     }
 }
