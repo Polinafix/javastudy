@@ -7,12 +7,15 @@ import java.io.IOException;
  * Created by Полина on 19.04.2015.
  */
 public class PointTest {
+
     @Test
     public void testQuarter() {
         Assert.assertEquals("Первая координатная четверть", new Point(1.0, 1.0).quarter());
         Assert.assertEquals("Вторая координатная четверть", new Point(-1.0, 1.0).quarter());
         Assert.assertEquals("Третья координатная четверть", new Point(-1.0, -1.0).quarter());
         Assert.assertEquals("Четвертая координатная четверть", new Point(1.0, -1.0).quarter());
+        Assert.assertEquals("Координата лежит на оси Y", new Point(0.0, -1.0).quarter());
+        Assert.assertEquals("Координата лежит на оси Х", new Point(1.0, 0.0).quarter());
         Assert.assertEquals("Начало координат", new Point(0.0, 0.0).quarter());
     }
 
