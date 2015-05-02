@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -23,6 +24,11 @@ import java.util.Scanner;
 
 public class Main3 {
     public static void main(String[] args) {
+        //new Main3().version1();
+        version2();
+    }
+
+    public void version1() {
         Scanner scan = new Scanner(System.in);
         String[] rawInput = scan.nextLine().split(" ");
         ArrayList<Integer> list = new ArrayList<>();
@@ -33,7 +39,60 @@ public class Main3 {
         int c = scan.nextInt();
         list.add(k, c);
         System.out.println(list);
+    }
 
+    public static void version2() {
+        Scanner scan = new Scanner(System.in);
+        String[] rawInput = scan.nextLine().split(" ");
+        int index = scan.nextInt();
+        String value = scan.next();
+        String[] result = new String[rawInput.length + 1];
+        for (int i = 0; i < result.length; i++) {
+            if (i < index) {
+                result[i] = rawInput[i];
+            }
+            if (i == index) {
+                result[i] = value;
+            }
+            if (i > index) {
+                result[i] = rawInput[i - 1];
+            }
+           /* result[i] = i < index ? rawInput[i] : "";
+            result[i] = i == index ? value : "";
+            result[i] = i > index ? rawInput[i - 1] : "";*/
+        }
+        System.out.println(Arrays.toString(result));
+        for (String val : result) {
+            System.out.print(val + " ");
+        }
+        System.out.println();
+        for (int i = 0; i < result.length; i++) {
+            System.out.print(result[i] + " ");
+        }
+             /*
+        1) считать все исходные данные от пользователя
+        2) массив с элементами и новый элемент и позиция, на которой он должен оказаться в расширенном (новом) массиве
+        2.1) создать новый массив, размерность - старый + 1
+        2.2) цикл по элементам (старый ? новый)
+        2.3) скопировать все элементы до нужной позиции в новый массив
+        2.4) на указанную пользователем позицию вставить элемент
+        2.5) скопировать оставшиеся элементы после нового элемента в новом массиве
+        3) вывести на экран
 
+          rawInput     7 6 5 4 3 2 1
+          rawInput.i   0 1 2 3 4 5 6
+          result       7 6 0 5 4 3 2 1
+          result.i     0 1 2 3 4 5 6 7
+
+           index = 2
+           value = "0"
+
+           1) 0<2 => result[0] = rawInput[0] = 7
+           2) 1<2 => result[1] = rawInput[1] = 6
+           3) 2=2 => result[2] = value = 0 (add new element value = 0)
+           4) 3>2 => result[3] = rawInput[2] = 5
+           5) 4>2 => result[4] = rawInput[4-1] = 4
+           ...
+         */
     }
 }
