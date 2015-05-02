@@ -15,10 +15,13 @@ public class PointTest {
         Assert.assertEquals("Четвертая координатная четверть", new Point(1.0, -1.0).quarter());
         Assert.assertEquals("Начало координат", new Point(0.0, 0.0).quarter());
     }
-    public void testIsSimmetric(Point s)  {
-        Assert.assertTrue()
+
+    @Test
+    public void testIsSimmetric()  {
+        Assert.assertTrue(new Point(0, 0).isSimmetric(new Point(0, 0)));
+        Assert.assertTrue(new Point(1, 1).isSimmetric(new Point(-1, -1)));
+        Assert.assertFalse(new Point(1, 3).isSimmetric(new Point(-1, -1)));
 
 
-        return 0;
     }
 }

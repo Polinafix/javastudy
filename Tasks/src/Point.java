@@ -106,7 +106,7 @@ public class Point {
 class Main {
 
     public static void main(String[] args) throws IOException {
-        Point p1 = new Point();
+        Point p1 = new Point(0, 2);
         Point p2 = new Point(1, 1);
 
         System.out.println("Расстояние между точками " + p1 + " и " + p2 + " равно " + p1.length(p2));
