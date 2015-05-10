@@ -42,6 +42,16 @@ public class PointChild extends Point {
         return "String s, Integer... msg";
     }
 
+    @Override
+    public int hashCode() { // ChildPoint -> Point -> Object
+        return 999;
+    }
+    public int hashCode(int a) { // overloading
+        return 999;
+    }
+
+
+
     public static void main(String[] args) {
         PointChild p = new PointChild(1, 2);
         System.out.println(p.quarter());
